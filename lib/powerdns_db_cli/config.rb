@@ -6,7 +6,7 @@ module PowerDNS
     class Config < Hash
       include Singleton
 
-      PATH = '~/.config/PowerDNS/db_cli.yaml'
+      PATH = File.expand_path('~/.config/PowerDNS/db_cli.yaml')
 
       DEFAULT = {
         adapter: 'postgresql',
@@ -18,7 +18,7 @@ module PowerDNS
       }
 
       def initialize
-        if File.exists?(File.expand_path(PATH))
+        if File.exists?(PATH)
           self.merge!(YAML.load_file(PATH))
         else
           self.merge!(DEFAULT)
