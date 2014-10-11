@@ -1,8 +1,6 @@
 module PowerDNS
   module DB
     class CLI < Thor
-      VERSION = '0.0.1'
-
       package_name 'pdns'
 
       map '-i' => :irb
