@@ -1,8 +1,19 @@
 module PowerDNS
   module DB
-    module CLI
-    end
   end
 end
 
-require 'powerdns_db_cli/version'
+require 'active_record'
+require 'thor'
+
+require 'powerdns_db_cli/cryptokey'
+require 'powerdns_db_cli/domainmetadatum'
+require 'powerdns_db_cli/domain'
+require 'powerdns_db_cli/record'
+require 'powerdns_db_cli/supermaster'
+require 'powerdns_db_cli/tsigkey'
+
+require 'powerdns_db_cli/config'
+require 'powerdns_db_cli/shell'
+
+require 'powerdns_db_cli/cli'
