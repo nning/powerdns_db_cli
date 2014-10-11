@@ -11,6 +11,12 @@ module PowerDNS
       def irb
         PowerDNS::DB::Shell.start(PowerDNS::DB)
       end
+
+      def initialize(*)
+        @config = Config.instance
+        ActiveRecord::Base.establish_connection(@config)
+        super
+      end
     end
   end
 end
