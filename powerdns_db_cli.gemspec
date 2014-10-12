@@ -3,7 +3,8 @@ Gem::Specification.new do |spec|
   spec.version       = '0.0.1'
   spec.authors       = ['henning mueller']
   spec.email         = ['mail@nning.io']
-  spec.summary       = 'Minimal PowerDNS database administration command-line interface.'
+
+  spec.summary       = 'Minimal command-line interface for PowerDNS database administration.'
 # spec.description   = %q{TODO: Write a longer description. Optional.}
   spec.homepage      = ''
   spec.license       = 'MIT'
