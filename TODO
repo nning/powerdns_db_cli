@@ -1,0 +1,11 @@
+More sources of inspiration for the models:
+
+* https://github.com/liom/nessie/tree/master/app/models
+* https://github.com/up_the_irons/powerdns-models/tree/master/lib/models
+* https://github.com/aageyev/pdns-backend/tree/master/app/models
+* https://github.com/zenops/zendns/tree/master/app/models
+* https://github.com/meineerde/powerdns_api/tree/master/app/models
+
+Inspiration for DynDNS:
+
+* https://github.com/jfqd/dyndns
