@@ -1,22 +1,23 @@
-Gem::Specification.new do |spec|
-  spec.name          = 'powerdns_db_cli'
-  spec.version       = '0.0.1'
-  spec.authors       = ['henning mueller']
-  spec.email         = ['mail@nning.io']
+Gem::Specification.new do |s|
+  s.name          = 'powerdns_db_cli'
+  s.version       = '0.0.1'
+  s.authors       = ['henning mueller']
+  s.email         = ['mail@nning.io']
 
-  spec.summary       = 'Minimal command-line interface for PowerDNS database administration.'
-# spec.description   = %q{TODO: Write a longer description. Optional.}
-  spec.homepage      = ''
-  spec.license       = 'MIT'
+  s.summary       = 'Minimal command-line interface for PowerDNS database administration.'
+# s.description   = %q{TODO: Write a longer description. Optional.}
+  s.homepage      = ''
+  s.license       = 'MIT'
 
-  spec.files         = `git ls-files -z`.split("\x0")
-  spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
-  spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
-  spec.require_paths = ['lib']
+  s.files         = `git ls-files -z`.split("\x0")
+  s.executables   = s.files.grep(%r{^bin/}) { |f| File.basename(f) }
+  s.test_files    = s.files.grep(%r{^(test|spec|features)/})
+  s.require_paths = ['lib']
 
-  spec.add_development_dependency 'bundler', '~> 1.7'
-  spec.add_development_dependency 'rake', '~> 10.0'
+  s.add_development_dependency 'bundler', '~> 1.7'
+  s.add_development_dependency 'rake', '~> 10.0'
 
-  spec.add_runtime_dependency 'activerecord', '~> 4.1'
-  spec.add_runtime_dependency 'thor', '~> 0.19'
+  s.add_runtime_dependency 'activerecord', '~> 4.1'
+  s.add_runtime_dependency 'thor', '~> 0.19'
+  s.add_runtime_dependency 'terminal-table', '~> 1.4.5'
 end

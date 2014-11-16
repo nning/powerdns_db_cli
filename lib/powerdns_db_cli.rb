@@ -4,6 +4,7 @@ module PowerDNS
 end
 
 require 'active_record'
+require 'terminal-table'
 require 'thor'
 
 require 'powerdns_db_cli/cryptokey'
@@ -16,4 +17,6 @@ require 'powerdns_db_cli/tsigkey'
 require 'powerdns_db_cli/config'
 require 'powerdns_db_cli/shell'
 
-require 'powerdns_db_cli/cli'
+require 'powerdns_db_cli/cli/main'
+require 'powerdns_db_cli/cli/domain'
+require 'powerdns_db_cli/cli/record'

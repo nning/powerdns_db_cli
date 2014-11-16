@@ -6,7 +6,7 @@ module PowerDNS
     class Config < Hash
       include Singleton
 
-      PATH = File.expand_path('~/.config/PowerDNS/db_cli.yaml')
+      PATH = File.expand_path('~/.config/PowerDNS/db_cli.yml')
 
       DEFAULT = {
         adapter: 'postgresql',
