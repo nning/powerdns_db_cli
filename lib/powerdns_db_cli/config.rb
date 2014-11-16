@@ -14,7 +14,8 @@ module PowerDNS
         port: 5432,
         database: 'pdns',
         username: 'postgres',
-        password: ''
+        password: '',
+        default_soa: 'ns.example.com. dns.example.com. 1970010100 60 3600 604800 40000'
       }
 
       def initialize

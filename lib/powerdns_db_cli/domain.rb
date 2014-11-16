@@ -6,6 +6,8 @@ module PowerDNS
 
       has_many :records, dependent: :destroy
 
+      after_create :create_soa_record
+
       self.inheritance_column = :sti
 
       validates :name,
@@ -30,6 +32,24 @@ module PowerDNS
 
       def slave?
         self.type == 'SLAVE'
+      end
+
+      def soa_record
+        records.where(type: 'SOA').first!
+      end
+
+      private
+
+      def create_soa_record
+        records.create! \
+          name: self.name,
+          type: 'SOA',
+          content: Config.instance[:default_soa],
+          ttl: 38400,
+          prio: 0,
+          auth: true
+
+        soa_record.update_serial!
       end
     end
   end
