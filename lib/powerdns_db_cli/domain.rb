@@ -7,6 +7,7 @@ module PowerDNS
       has_many :records, dependent: :destroy
 
       after_create :create_soa_record
+      after_create :create_ns_records
 
       self.inheritance_column = :sti
 
@@ -40,11 +41,23 @@ module PowerDNS
 
       private
 
+      def create_ns_records
+        Config.instance['default_ns'].each do |server|
+          records.create! \
+            name: self.name,
+            type: 'NS',
+            content: server,
+            ttl: 38400,
+            prio: 0,
+            auth: true
+        end
+      end
+
       def create_soa_record
         records.create! \
           name: self.name,
           type: 'SOA',
-          content: Config.instance[:default_soa],
+          content: Config.instance['default_soa'],
           ttl: 38400,
           prio: 0,
           auth: true
