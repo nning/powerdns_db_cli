@@ -17,12 +17,14 @@ module PowerDNS
             auth: auth == 'true'
         end
 
-        desc 'list <domain>', 'List records of domain.'
-        def list(domain)
+        desc 'list <domain> [type]', 'List records of domain.'
+        def list(domain, type = nil)
           d = DB::Domain.where(name: domain).first!
           
           h = [:name, :type, :prio, :content, :ttl, :auth]
-          r = d.records.order(*h[0..1]).pluck(*h)
+
+          r = type.nil? ? d.records : d.records.where(type: type)
+          r = r.order(*h[0..1]).pluck(*h)
 
           t = Terminal::Table.new(headings: h, rows: r)
           t.align_column(0, :right)

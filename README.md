@@ -21,7 +21,7 @@ Usage
     pdns domain create <name>
     pdns domain remove <name>
 
-	pdns record list <domain>
+	pdns record list <domain> [type]
 	pdns record create <domain> <name> <type> <content> [prio] [ttl] [auth]
 	pdns record remove <domain> <name> <type> [content] [prio]
 
