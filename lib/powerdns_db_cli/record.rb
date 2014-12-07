@@ -20,6 +20,7 @@ module PowerDNS
       before_validation :append_domain_name!, if: :domain_id?
       before_save :update_change_date
       after_save :update_soa_serial
+      after_destroy :update_soa_serial
 
       def update_serial
         return if self.type != 'SOA'
