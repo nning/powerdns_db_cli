@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name          = 'powerdns_db_cli'
-  s.version       = '0.0.5'
+  s.version       = '0.0.6'
   s.authors       = ['henning mueller']
   s.email         = ['mail@nning.io']
 
@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'pg', '~> 0.17'
   s.add_development_dependency 'rake', '~> 10.0'
 
-  s.add_runtime_dependency 'activerecord', '~> 4.1', '< 4.2.0'
+  s.add_runtime_dependency 'activerecord', '~> 5.0', '< 5.1.0'
   s.add_runtime_dependency 'thor', '~> 0.19'
-  s.add_runtime_dependency 'terminal-table', '~> 1.4.5'
+  s.add_runtime_dependency 'terminal-table', '~> 1.7.3'
 end
