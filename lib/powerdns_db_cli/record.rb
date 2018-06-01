@@ -22,14 +22,35 @@ module PowerDNS
       after_save :update_soa_serial
       after_destroy :update_soa_serial
 
+      # We do not use the conventional serial format (e.g. 1970010199), because
+      # the serial update counter is limited to two digits which is a problem
+      # with DynDNS.
+      #
+      # The serial has the format:
+      #   <year><month-plus-20><four-digit-update-counter>
+      #   e.g. 1970219999
+      #
+      # Maximum serial in PowerDNS is 2147483647.
+      # See https://github.com/PowerDNS/pdns/issues/4943
       def update_serial
         return if self.type != 'SOA'
 
         a = self.content.split(' ')
-        i = a[2][8..-1].to_i + 1
-        t = Time.now.strftime('%Y%m%d')
 
-        a[2] = t + "%02d" % i
+        # Last 4 digits of serial (serial update counter)
+        i = a[2][6..-1].to_i
+
+        # 201801 -> 201821
+        t = Time.now.strftime('%Y%m').to_i + 20
+
+        # Reset serial update counter if serial is on "old" format (e.g.
+        # 2018010199)
+        i = 0 if a[2][4..5].to_i <= 12
+
+        # Increment serial update counter
+        i += 1
+
+        a[2] = t.to_s + "%04d" % i
         self.content = a.join(' ')
       end
 
@@ -45,7 +66,7 @@ module PowerDNS
           self.name = self.domain.name
         else
           unless self.name.include?(self.domain.name)
-            self.name << ".#{self.domain.name}" 
+            self.name << ".#{self.domain.name}"
           end
         end
       end

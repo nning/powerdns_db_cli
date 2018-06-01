@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name          = 'powerdns_db_cli'
-  s.version       = '0.0.6'
+  s.version       = '0.0.7'
   s.authors       = ['henning mueller']
   s.email         = ['mail@nning.io']
 
@@ -14,7 +14,6 @@ Gem::Specification.new do |s|
   s.test_files    = s.files.grep(%r{^(test|spec|features)/})
   s.require_paths = ['lib']
 
-  s.add_development_dependency 'bundler', '~> 1.13.7'
   s.add_development_dependency 'pg', '~> 0.19'
   s.add_development_dependency 'rake', '~> 12.0'
 
