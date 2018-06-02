@@ -5,10 +5,16 @@ module PowerDNS
         package_name 'pdns'
 
         map '-i' => :irb
+        map '-v' => :version
 
         desc 'irb', 'Start interactive shell.'
         def irb
           Shell.start(PowerDNS::DB)
+        end
+
+        desc 'version', 'Show version'
+        def version
+          puts PowerDNS::DB::CLI::VERSION
         end
 
         def initialize(*)

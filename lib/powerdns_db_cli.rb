@@ -1,11 +1,15 @@
 module PowerDNS
   module DB
+    module CLI
+    end
   end
 end
 
 require 'active_record'
 require 'terminal-table'
 require 'thor'
+
+require 'powerdns_db_cli/version'
 
 require 'powerdns_db_cli/cryptokey'
 require 'powerdns_db_cli/domainmetadatum'

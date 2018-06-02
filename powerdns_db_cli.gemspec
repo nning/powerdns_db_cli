@@ -1,6 +1,8 @@
+require './lib/powerdns_db_cli/version'
+
 Gem::Specification.new do |s|
   s.name          = 'powerdns_db_cli'
-  s.version       = '0.0.7'
+  s.version       = PowerDNS::DB::CLI::VERSION
   s.authors       = ['henning mueller']
   s.email         = ['mail@nning.io']
 
