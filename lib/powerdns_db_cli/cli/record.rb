@@ -20,7 +20,7 @@ module PowerDNS
         desc 'list <domain> [type]', 'List records of domain.'
         def list(domain, type = nil)
           d = DB::Domain.where(name: domain).first!
-          
+
           h = [:name, :type, :prio, :content, :ttl, :auth]
 
           r = type.nil? ? d.records : d.records.where(type: type)
@@ -33,6 +33,7 @@ module PowerDNS
         end
 
         desc 'remove <domain> <name> <type> [content] [prio]', 'Remove record.'
+        option :yes, type: :boolean
         def remove(domain, name, type, content = nil, prio = nil)
           d = DB::Domain.where(name: domain).first!
 
@@ -44,7 +45,7 @@ module PowerDNS
           c = r.size
 
           if c > 0
-            r.destroy_all if yes?("Delete #{c} records?")
+            r.destroy_all if options[:yes] || yes?("Delete #{c} records?")
           else
             say("No records found.")
           end
