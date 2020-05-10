@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+Warning[:deprecated] = false
+
 lib = File.expand_path('../../lib', __FILE__)
 $:.unshift(lib) unless $:.include?(lib)
 
