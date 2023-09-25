@@ -21,7 +21,7 @@ module PowerDNS
 
       def initialize
         self.merge!(DEFAULT)
-        self.merge!(YAML.load_file(PATH)) if File.exists?(PATH)
+        self.merge!(YAML.load_file(PATH)) if File.exist?(PATH)
       end
     end
   end

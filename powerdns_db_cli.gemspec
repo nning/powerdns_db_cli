@@ -16,10 +16,12 @@ Gem::Specification.new do |s|
   s.test_files    = s.files.grep(%r{^(test|spec|features)/})
   s.require_paths = ['lib']
 
-  s.add_development_dependency 'pg', '~> 0.19'
-  s.add_development_dependency 'rake', '~> 12.0'
+  s.add_development_dependency 'pg', '~> 1.5', '>= 1.5.4'
+  s.add_development_dependency 'rake', '~> 13.0.6'
 
-  s.add_runtime_dependency 'activerecord', '~> 5.0', '< 5.1.0'
-  s.add_runtime_dependency 'thor', '~> 0.19'
-  s.add_runtime_dependency 'terminal-table', '~> 1.7.3'
+  s.add_runtime_dependency 'activerecord', '~> 7.0', '>= 7.0.7.2'
+  s.add_runtime_dependency 'thor', '~> 1.2', '>= 1.2.2'
+  s.add_runtime_dependency 'terminal-table', '~> 3.0', '>= 3.0.2'
+
+  s.required_ruby_version = "~> 3.2"
 end
